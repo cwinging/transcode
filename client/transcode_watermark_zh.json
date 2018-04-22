@@ -1,0 +1,18 @@
+{
+    "scope" : "a/b/c/d/1.mp4",
+    "targetTemplate" : "${filename}_${Resolution}_${vb}_128_zh_m3u8_15.m3u8",
+    "domain" : "http://www.ebook.com",
+    "taskID": "",
+    "rootDir" : "",
+    "deadline" : 0,
+    "callbackUrl" : "",
+    "callbackBody" : "",
+    "callbackBodyType" : "",
+    "persistentOps" : "avthumb/m3u8/acodec/aac/ab/128k/ar/44100/vcodec/h264/s/720x480/vb/800k/r/25/segtime/15/wmImage/${png}/wmGravity/SouthWest/wmText/${text}/wmGravityText/North/wmFontColor/DarkBlue/wmFont/楷体/wmFontSize/48/wmOffsetY/-40/wmOffsetX/40",
+    "persistentNotifyUrl" : "http://192.168.1.213:8080/api/job/callback",
+    "persistentPipeline" : "",
+    "persistentNotifyBody" : "",
+    "persistentNotifyType" : "",
+    "fsize" : -1,
+    "checksum" : ""
+}

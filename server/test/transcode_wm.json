@@ -1,0 +1,16 @@
+{
+    "scope" : "/home/ebook/transcode_video/source.200kbps.768x320.flv",
+    "targetTemplate" : "${filename}_${Resolution}_${vb}_drawtext_01.mp4",
+    "domain" : "http://www.ebook.com",
+    "rootDir" : "/home/ebook",
+    "deadline" : 0,
+    "callbackUrl" : "",
+    "callbackBody" : "",
+    "callbackBodyType" : "",
+    "persistentOps" : "avthumb/mp4/acodec/aac/ab/128k/ar/44100/vcodec/h264/s/720x480/vb/800k/r/25/wmText/${text}/wmFont/雅黑/wmFontColor/DarkGreen/wmGravityText/North/wmImage/${png}/wmGravity/NorthEast",
+    "persistentNotifyUrl" : "http://www.abc.com/transcode/notify",
+    "persistentNotifyBody" : "",
+    "persistentNotifyType" : "",
+    "fsize" : -1,
+    "checksum" : ""
+}

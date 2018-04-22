@@ -1,0 +1,18 @@
+{
+    "scope" : "a/b/c/d/1.mp4",
+    "targetTemplate" : "${filename}_${Resolution}_${vb}.${subffix}",
+    "domain" : "http://www.ebook.com",
+    "taskID": "",
+    "rootDir" : "",
+    "deadline" : 0,
+    "callbackUrl" : "",
+    "callbackBody" : "",
+    "callbackBodyType" : "",
+    "persistentOps" : "avthumb/mp4/acodec/aac/ab/128k/ar/44100/vcodec/h264/s/480x320/aspect/3:2/r/25",
+    "persistentNotifyUrl" : "http://www.abc.com/transcode/notify",
+    "persistentPipeline" : "",
+    "persistentNotifyBody" : "",
+    "persistentNotifyType" : "",
+    "fsize" : -1,
+    "checksum" : ""
+}

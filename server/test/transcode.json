@@ -1,0 +1,8 @@
+{
+    "scope" : "/home/ebook/transcode_video/1.mp4",
+    "targetTemplate" : "${filename}_${Resolution}_${vb}.m3u8",
+    "domain" : "http://www.ebook.com",
+    "rootDir" : "/home/ebook",
+    "persistentOps" : "avthumb/m3u8/acodec/aac/ab/128k/ar/44100/vcodec/h264/s/480x320/r/25/segtime/10/pattern/test${count}",
+    "persistentNotifyUrl" : "http://www.abc.com/transcode/notify"
+}

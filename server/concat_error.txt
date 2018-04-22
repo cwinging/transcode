@@ -1,0 +1,8 @@
+File 'output.mp4' already exists. Overwrite ? [y/N] y
+[Parsed_concat_0 @ 0x42b14a0] Input link in1:v0 parameters (size 512x288, SAR 1:1) do not match the corresponding output link in0:v0 parameters (720x480, SAR 1:1)
+[Parsed_concat_0 @ 0x42b14a0] Failed to configure output pad on Parsed_concat_0
+Error configuring complex filters.
+Invalid argument
+
+Unknow keyword
+Invalid data
