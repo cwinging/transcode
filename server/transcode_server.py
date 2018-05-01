@@ -278,7 +278,7 @@ def get_watermark_ops(request, rootdir):
 def transcode_request_to_convert_cmd(request, rootdir):
     """
     history:
-    add rootdir parameter, because wmImage path is relative path, join rootdir to absolute path  2016-07-22 huihoo
+    add rootdir parameter, because wmImage path is relative path, join rootdir to absolute path  2016-07-22 cwinging
 
     function:
     convert transcode cmd to Dict object

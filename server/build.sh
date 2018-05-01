@@ -2,7 +2,7 @@
 
 VERSION=1.0.0
 APP=transcode
-PACK_DIR=dnion-swift-$APP-$VERSION
+PACK_DIR=swift-$APP-$VERSION
 
 SCRIPT=$(readlink -f "$0")
 BUILDPATH=$(dirname "${SCRIPT}")
