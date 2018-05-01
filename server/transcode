@@ -14,8 +14,8 @@
 # Description:       starts transcode using start-stop-daemon
 ### END INIT INFO
 
-# Author:   huihoo
-# website:  http://www.dnion.com
+# Author:   cwinging
+# website:  https://github.com/cwinging/transcode
 
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
