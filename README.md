@@ -35,12 +35,13 @@
     3.转码服务向队列请求转码任务，开始执行转码任务，并上报转码结果给作业管理系统。
     4.作业管理系统接收转码上报，写入数据库，提供转码作业信息的查询。
 
-    ![转码组件图](http://jitrtc.com/download/transcode.png)
+
+![image](http://jitrtc.com/download/transcode.png)
 
 
 ###转码任务队列
 
-    队列基于httpmq实现[httpmq](https://github.com/hnlq715/httpmq)，支持put/get操作。
+队列基于httpmq([https://github.com/hnlq715/httpmq](https://github.com/hnlq715/httpmq "httpmq"))实现，支持put/get操作。
 
     1.put操作
     基于http get方式：http://host:port/?name=your_queue_name&opt=put&data=url_encoded_text_message&auth=mypass123
@@ -53,7 +54,9 @@
     http://host:port/?charset=utf-8&name=your_queue_name&opt=get&auth=mypass123
 
 ###转码任务描述
+
     转码任务采用json格式，格式如下：
+
     {
         "scope" : "a/b/c/d/1.mp4",
         "targetTemplate" : "${filename}_${Resolution}_${vb}.${subffix}",
@@ -83,8 +86,9 @@ test目录下有给转码队列发送http json例子，读者可以根据自己�
 
 
 ## Installation and requirements
-1.python setup.py install
-2.python server/transcode_server.py -c server/transcode.cfg
+
+     1.python setup.py install
+     2.python server/transcode_server.py -c server/transcode.cfg
 
 
 ## Authors and Copyright
