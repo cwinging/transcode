@@ -2,7 +2,7 @@
 
 基于ffmpeg命令行的转码服务。
 
-提供REstful转码接口，参考了七牛转码接口参数
+提供RESTful转码接口，参考了七牛转码接口参数
     
     {
         "scope" : "a/b/c/d/1.mp4",
@@ -26,27 +26,52 @@
 
 ## Quickstart
 
-    from converter import Converter
-    c = Converter()
+###转码系统组件：
 
-    info = c.probe('test1.ogg')
+    转码系统由客户端，转码任务队列，转码服务，转码作业管理组成。
+    流程如下：
+    1.客户端向转码任务队列发送转码任务。
+    2.转码任务队列排队转码任务，接受任务请求，并按照FIFO原则派发任务。
+    3.转码服务向队列请求转码任务，开始执行转码任务，并上报转码结果给作业管理系统。
+    4.作业管理系统接收转码上报，写入数据库，提供转码作业信息的查询。
 
-    conv = c.convert('test1.ogg', '/tmp/output.mkv', {
-        'format': 'mkv',
-        'audio': {
-            'codec': 'mp3',
-            'samplerate': 11025,
-            'channels': 2
-        },
-        'video': {
-            'codec': 'h264',
-            'width': 720,
-            'height': 400,
-            'fps': 15
-        }})
+    ![转码组件图](http://jitrtc.com/download/transcode.png)
 
-    for timecode in conv:
-        print "Converting (%f) ...\r" % timecode
+
+###转码任务队列
+
+    队列基于httpmq实现[httpmq](https://github.com/hnlq715/httpmq)，支持put/get操作。
+
+    1.put操作
+    基于http get方式：http://host:port/?name=your_queue_name&opt=put&data=url_encoded_text_message&auth=mypass123
+
+    基于http post方式：
+    http://host:port/?name=your_queue_name&opt=put&auth=mypass123
+    ...data...
+
+    2.get操作
+    http://host:port/?charset=utf-8&name=your_queue_name&opt=get&auth=mypass123
+
+###转码任务描述
+    转码任务采用json格式，格式如下：
+    {
+        "scope" : "a/b/c/d/1.mp4",
+        "targetTemplate" : "${filename}_${Resolution}_${vb}.${subffix}",
+        "domain" : "http://www.ebook.com",
+        "taskID": "",
+        "rootDir" : "",
+        "deadline" : 0,
+        "callbackUrl" : "",
+        "callbackBody" : "",
+        "callbackBodyType" : "",
+        "persistentOps" : "avthumb/mp4/acodec/aac/ab/128k/ar/44100/vcodec/h264/s/360x240/aspect/3:2/r/25",
+        "persistentNotifyUrl" : "http://www.abc.com/transcode/notify",
+        "persistentPipeline" : "",
+        "persistentNotifyBody" : "",
+        "persistentNotifyType" : "",
+        "fsize" : -1,
+        "checksum" : ""
+    }    
 
 
 ## Plan
@@ -54,23 +79,13 @@
 
 ## Documentation and tests
    
-test目录下有给转码接口发送http json例子，读者可以根据自己需求自定义转码persistentOps
+test目录下有给转码队列发送http json例子，读者可以根据自己需求自定义转码persistentOps
 
 
 ## Installation and requirements
+1.python setup.py install
+2.python server/transcode_server.py -c server/transcode.cfg
 
-To install the package:
-
-    python setup.py install
-
-Note that this only installs the Python Video Converter library. The `ffmpeg`
-and `ffprobe` tools should be installed on the system separately, with all the
-codec and format support you require.
-
-If you need to compile and install the tools manually, have a look at the
-example script `test/install-ffmpeg.sh` (used for automated test suite). It may
-or may not be useful for your requirements, so don't just blindly run it -
-check that it does what you need first.
 
 ## Authors and Copyright
 
